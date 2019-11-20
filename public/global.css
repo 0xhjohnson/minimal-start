@@ -1,0 +1,17 @@
+html, body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.font-mont {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.feather {
+  width: 2rem;
+  height: 2rem;
+  stroke: white;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}

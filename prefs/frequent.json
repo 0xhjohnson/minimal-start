@@ -1,0 +1,64 @@
+{
+  "frequent": [
+    {
+      "name": "nextcloud",
+      "url": "stormage.xyz",
+      "icon": "cloud-lightning"
+    },
+    {
+      "name": "pi-hole",
+      "url": "192.168.86.254",
+      "icon": "x-octagon"
+    },
+    {
+      "name": "0xhjohnson",
+      "url": "0xhjohnson.com",
+      "icon": "x"
+    },
+    {
+      "name": "github",
+      "url": "github.com",
+      "icon": "github"
+    },
+    {
+      "name": "dev",
+      "url": "dev.to",
+      "icon": "code"
+    },
+    {
+      "name": "plex",
+      "url": "plex.example.com",
+      "icon": "disc"
+    },
+    {
+      "name": "stack overflow",
+      "url": "stackoverflow.com",
+      "icon": "git-commit"
+    },
+    {
+      "name": "hangouts",
+      "url": "hangouts.google.com",
+      "icon": "message-circle"
+    },
+    {
+      "name": "reddit",
+      "url": "reddit.com",
+      "icon": "heart"
+    },
+    {
+      "name": "vultr",
+      "url": "vultr.com",
+      "icon": "server"
+    },
+    {
+      "name": "twitter",
+      "url": "twitter.com",
+      "icon": "twitter"
+    },
+    {
+      "name": "figma",
+      "url": "figma.com",
+      "icon": "figma"
+    }
+  ]
+}
