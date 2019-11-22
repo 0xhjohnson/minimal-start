@@ -1,9 +1,25 @@
 <script>
   import dayjs from 'dayjs';
+  import { includes, replace } from 'ramda';
 
   let searchEl;
   let searchTerm;
+  let searchService;
+  
   const date = dayjs().format('dddd, D.M.YYYY');
+
+  const setSearchService = service => {
+    switch(service) {
+      case 'd':
+        searchService = 'https://discogs.com/search/?q=';
+        break;
+      case 'g':
+        searchService = 'https://google.com/search?q=';
+        break;
+      default:
+        console.log('PROMPT USER SEARCH SERVICE NOT FOUND');
+    }
+  };
 
   function handleKeydown(ev) {
     let { key } = ev;
@@ -17,6 +33,18 @@
       case 'Escape':
         searchEl.blur();
         searchTerm = '';
+        break;
+      case ':':
+        setSearchService(searchTerm);
+        break;
+      case 'Enter':
+        if (includes(':', searchTerm)) {
+          let query;
+          query = replace(/[a-z]:/g, '', searchTerm);
+          query = replace(' ', '+', query);
+          window.location.href = `${searchService}${query}`;
+        }
+        window.location.href = `https://duckduckgo.com/?q=${searchTerm}`;
         break;
     }
   }
