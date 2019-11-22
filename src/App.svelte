@@ -9,7 +9,7 @@
   }
 </style>
 
-<main class="flex justify-center h-screen bg-night-darkest">
+<main class="flex justify-center h-screen">
   <div class="container my-16">
     <hr class="text-frost-lighter">
     <Headline />
