@@ -1,8 +1,25 @@
 <script>
-  import dayjs from 'dayjs'
+  import dayjs from 'dayjs';
 
-  const date = dayjs().format('dddd, D.M.YYYY');
+  let searchEl;
   let searchTerm;
+  const date = dayjs().format('dddd, D.M.YYYY');
+
+  function handleKeydown(ev) {
+    let { key } = ev;
+
+    switch(key) {
+      case '/':
+        setTimeout(() => {
+          searchEl.focus();
+        }, 50);
+        break;
+      case 'Escape':
+        searchEl.blur();
+        searchTerm = '';
+        break;
+    }
+  }
 </script>
 
 <style>
@@ -18,12 +35,15 @@
   }
 </style>
 
-<div class="flex py-16">
+<svelte:window on:keydown={handleKeydown} />
+
+<div class="flex py-16"> 
   <div class="flex flex-col justify-center space-between">
     <p class="text-snow">{date}</p>
     <input
       class="search-icon text-snow shadow appearance-none focus:outline-none py-2 pl-12 pr-6 my-4 bg-night rounded-lg border border-solid border-night"
       bind:value={searchTerm}
+      bind:this={searchEl}
     >
   </div>
 </div>
