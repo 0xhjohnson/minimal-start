@@ -2,31 +2,40 @@
   import dayjs from 'dayjs';
   import { includes, split, last } from 'ramda';
 
-  let searchEl;
-  let searchTerm;
-  let searchService;
+  let search = {
+    el: null,
+    service: null,
+    query: null,
+    error: false
+  };
   
   const date = dayjs().format('dddd, D.M.YYYY');
 
   const setSearchService = service => {
     switch(service) {
       case 'd':
-        searchService = 'https://discogs.com/search/?q=';
+        search.error = false;
+        search.service = 'https://discogs.com/search/?q=';
         break;
       case 'g':
-        searchService = 'https://google.com/search?q=';
+        search.error = false;
+        search.service = 'https://google.com/search?q=';
         break;
       case 'so':
-        searchService = 'https://stackoverflow.com/search?q=';
+        search.error = false;
+        search.service = 'https://stackoverflow.com/search?q=';
         break;
       case 'r':
-        searchService = 'https://reddit.com/search/?q=';
+        search.error = false;
+        search.service = 'https://reddit.com/search/?q=';
         break;
       case 'yt':
-        searchService = 'https://youtube.com/results?search_query=';
+        search.error = false;
+        search.service = 'https://youtube.com/results?search_query=';
         break;
       default:
-        console.log('PROMPT USER SEARCH SERVICE NOT FOUND');
+        search.error = true;
+        search.service = service;
     }
   };
 
@@ -36,38 +45,43 @@
     switch(key) {
       case '/':
         setTimeout(() => {
-          searchEl.focus();
+          search.el.focus();
         }, 50);
         break;
       case 'Escape':
-        searchEl.blur();
-        searchTerm = '';
+        search.el.blur();
+        search.query = null;
+        search.error = null;
         break;
       case ':':
-        setSearchService(searchTerm);
+        setSearchService(search.query);
         break;
       case 'Enter':
-        if (includes(':', searchTerm)) {
-          const s = split(':', searchTerm);
-          const query = last(s);
+        if (search.error) return;
+
+        if (includes(':', search.query)) {
+          const query = last(split(':', search.query));
           
-          return window.location.href = `${searchService}${query}`;
+          return window.location.href = `${search.service}${query}`;
         }
-        return window.location.href = `https://duckduckgo.com/?q=${searchTerm}`;
+        return window.location.href = `https://duckduckgo.com/?q=${search.query}`;
     }
   }
 </script>
 
 <style>
-  .search-icon {
+  .search {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><path fill='%238C92A0' d='M11.44 10.73l4.41 4.42a.5.5 0 1 1-.7.7l-4.42-4.41a6.5 6.5 0 1 1 .7-.7v-.01zM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11z'></path></svg>");
     background-repeat: no-repeat;
     background-position: 15px 10px;
     background-size: 20px 20px;
     width: 600px;
   }
-  .search-icon:focus {
+  .search:focus {
     box-shadow: 0 0 0 3px #88c0d0;
+  }
+  .search-err:focus {
+    box-shadow: 0 0 0 3px #bf616a;
   }
 </style>
 
@@ -77,9 +91,13 @@
   <div class="flex flex-col justify-center space-between">
     <p class="text-snow">{date}</p>
     <input
-      class="search-icon text-snow shadow appearance-none focus:outline-none py-2 pl-12 pr-6 my-4 bg-night rounded-lg border border-solid border-night"
-      bind:value={searchTerm}
-      bind:this={searchEl}
+      class="search text-snow shadow appearance-none focus:outline-none py-2 pl-12 pr-6 my-4 bg-night rounded-lg border border-solid border-night"
+      class:search-err={search.error}
+      bind:value={search.query}
+      bind:this={search.el}
     >
+    {#if search.error}
+      <p class="text-sm italic text-aurora-r">{search.service} is not a valid search service.</p>
+    {/if}
   </div>
 </div>
