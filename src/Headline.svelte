@@ -1,6 +1,6 @@
 <script>
   import dayjs from 'dayjs';
-  import { includes, replace } from 'ramda';
+  import { includes, split, last } from 'ramda';
 
   let searchEl;
   let searchTerm;
@@ -15,6 +15,15 @@
         break;
       case 'g':
         searchService = 'https://google.com/search?q=';
+        break;
+      case 'so':
+        searchService = 'https://stackoverflow.com/search?q=';
+        break;
+      case 'r':
+        searchService = 'https://reddit.com/search/?q=';
+        break;
+      case 'yt':
+        searchService = 'https://youtube.com/results?search_query=';
         break;
       default:
         console.log('PROMPT USER SEARCH SERVICE NOT FOUND');
@@ -39,13 +48,14 @@
         break;
       case 'Enter':
         if (includes(':', searchTerm)) {
+          let s;
           let query;
-          query = replace(/[a-z]:/g, '', searchTerm);
-          query = replace(' ', '+', query);
-          window.location.href = `${searchService}${query}`;
+          
+          s = split(':', searchTerm);
+          query = last(s);
+          return window.location.href = `${searchService}${query}`;
         }
-        window.location.href = `https://duckduckgo.com/?q=${searchTerm}`;
-        break;
+        return window.location.href = `https://duckduckgo.com/?q=${searchTerm}`;
     }
   }
 </script>
