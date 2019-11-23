@@ -48,11 +48,9 @@
         break;
       case 'Enter':
         if (includes(':', searchTerm)) {
-          let s;
-          let query;
+          const s = split(':', searchTerm);
+          const query = last(s);
           
-          s = split(':', searchTerm);
-          query = last(s);
           return window.location.href = `${searchService}${query}`;
         }
         return window.location.href = `https://duckduckgo.com/?q=${searchTerm}`;
