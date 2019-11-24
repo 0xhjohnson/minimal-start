@@ -1,2 +1,2 @@
 # minimal start
-startpage with vim'ish' bindings. gives me excuse to try out Svelte
+*minimal startpage with vim(ish) bindings for the keyboard centric*
