@@ -10,12 +10,12 @@
   $: if ($mode) {
     icon = feather.icons.moon.toSvg();
     ariaLabel = 'Switch to dark mode';
-    document.body.classList.add('bg-snow');
+    document.body.classList.add('bg-snow', 'trans');
     document.body.classList.remove('bg-night-darkest');
   } else {
     icon = feather.icons.sun.toSvg();
     ariaLabel = 'Switch to light mode';
-    document.body.classList.add('bg-night-darkest');
+    document.body.classList.add('bg-night-darkest', 'trans');
     document.body.classList.remove('bg-snow');
   }
 </script>

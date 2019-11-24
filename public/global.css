@@ -2,6 +2,10 @@ html, body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.trans {
+  transition: color 0.2s ease-out, background 0.2s ease-out;
+}
+
 .font-mont {
   font-family: 'Montserrat', sans-serif;
 }
