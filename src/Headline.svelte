@@ -91,7 +91,7 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div class="flex py-10"> 
+<div class="flex pt-10 pb-16"> 
   <div class="flex flex-col justify-center space-between">
     <p>{date}</p>
     <input
