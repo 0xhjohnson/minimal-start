@@ -14,7 +14,7 @@
   }
 </style>
 
-<p class="text-snow text-3xl font-bold font-mont">frequent</p>
+<p class="text-3xl font-bold font-mont">frequent</p>
 <div class="cntr py-3">
   {#each data.frequent as item }
     <GridItem {...item} />

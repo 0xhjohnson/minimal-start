@@ -1,5 +1,6 @@
 <script>
   import dayjs from 'dayjs';
+  import { mode } from './stores.js';
   import { includes, split, last } from 'ramda';
 
   let search = {
@@ -75,12 +76,16 @@
     background-position: 15px 10px;
     background-size: 20px 20px;
     width: 600px;
+    background-color: var(--search);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--search);
   }
   .search:focus {
-    box-shadow: 0 0 0 3px #88c0d0;
+    box-shadow: 0 0 0 3px var(--focus);
   }
   .search-err:focus {
-    box-shadow: 0 0 0 3px #bf616a;
+    box-shadow: 0 0 0 3px var(--errFocus);
   }
 </style>
 
@@ -88,9 +93,9 @@
 
 <div class="flex py-10"> 
   <div class="flex flex-col justify-center space-between">
-    <p class="text-snow">{date}</p>
+    <p>{date}</p>
     <input
-      class="search text-snow shadow appearance-none focus:outline-none py-2 pl-12 pr-6 my-4 bg-night rounded-lg border border-solid border-night"
+      class="search shadow appearance-none focus:outline-none py-2 pl-12 pr-6 my-4 rounded-lg"
       class:search-err={search.error}
       bind:value={search.query}
       bind:this={search.el}

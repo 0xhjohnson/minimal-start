@@ -1,5 +1,53 @@
+:root {
+  --night: #4c566a;
+  --nightDark: #434c5e;
+  --nightDarker: #3b4252;
+  --nightDarkest: #2e3440;
+  --snow: #eceff4;
+  --snowDark: #e5e9f0;
+  --snowDarker: #d8dee9;
+  --frost: #5e81ac;
+  --frostLight: #81a1c1;
+  --frostLighter: #88c0d0;
+  --frostLightest: #8fbcbb;
+  --auroraP: #b48ead;
+  --auroraG: #a3be8c;
+  --auroraY: #ebcb8b;
+  --auroraO: #d08770;
+  --auroraR: #bf616a;
+}
+
+body.dark {
+  --bg: var(--nightDarkest);
+  --text: var(--snow);
+  --link: var(--frostLighter);
+  --linkHover: var(--night);
+  --focus: var(--frostLighter);
+  --errFocus: var(--auroraR);
+  --hr: var(--frostLighter);
+  --search: var(--night);
+  --url: var(--frostLight);
+}
+
+body.light {
+  --bg: var(--snow);
+  --text: var(--nightDarker);
+  --link: var(--nightDarker);
+  --linkHover: var(--snowDarker);
+  --focus: var(--frostLight);
+  --errFocus: var(--auroraR);
+  --hr: var(--frostLight);
+  --search: var(--snowDarker);
+  --url: var(--nightDark);
+}
+
 html, body {
   font-family: 'Noto Sans', sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 .trans {
@@ -13,7 +61,7 @@ html, body {
 .feather {
   width: 2rem;
   height: 2rem;
-  stroke: white;
+  stroke: var(--text);
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
