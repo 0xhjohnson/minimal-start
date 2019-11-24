@@ -61,7 +61,6 @@
 
         if (includes(':', search.query)) {
           const query = last(split(':', search.query));
-          
           return window.location.href = `${search.service}${query}`;
         }
         return window.location.href = `https://duckduckgo.com/?q=${search.query}`;
@@ -87,7 +86,7 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div class="flex py-16"> 
+<div class="flex py-10"> 
   <div class="flex flex-col justify-center space-between">
     <p class="text-snow">{date}</p>
     <input
