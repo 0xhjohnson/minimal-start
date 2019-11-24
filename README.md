@@ -1,8 +1,11 @@
-# Minimal start
+# minimal start
 *minimal startpage with vim(ish) bindings for the keyboard centric*
 
+![minimal startpage screenrecord](https://media.giphy.com/media/cLNRqRbKTSPJgxEvli/giphy.gif)
+
 ### Prerequisites:
-JS package manager of choice (I will be using [Yarn](https://yarnpkg.com/lang/en/))
+- [nodejs](https://nodejs.org/en/)
+- JS package manager of choice (I will be using [Yarn](https://yarnpkg.com/lang/en/))
 
 ### Install:
 Clone down the repo
@@ -34,16 +37,16 @@ Once you are happy with your configuration, create an optimized version of your 
 yarn build
 yarn start
 ```
-From here you could easily deploy to the web via [GitHub pages](https://pages.github.com/) or [zeit now](https://zeit.co/).
+From here you could easily deploy to the web via [GitHub pages](https://pages.github.com/) or [Zeit now](https://zeit.co/).
 
 ### Usage:
 Navigate to your web browser settings and set your homepage to the local server address or web URL.
-##### Bindings
+#### Bindings
 - `/` start searching
 - `Esc` stop searching and clear input
 - `{search_service}:{search_query}` search services are listed below with examples
 
-##### Search services
+#### Search services
 Default search service, if not provided, is `duckduckgo`.
 - `d:` discogs
 - `g` google
@@ -51,7 +54,7 @@ Default search service, if not provided, is `duckduckgo`.
 - `r` reddit
 - `yt` youtube
 
-##### Example Queries:
+#### Example Queries:
 Search stack overflow for help...
 `so:how to get a girlfriend after learning React?`
 
@@ -64,4 +67,5 @@ Search reddit for memes...
 Search duckduckgo like normal...
 `why is documentation so difficult`
 
+---
 Disclaimer: This may be overkill for a startpage but I needed an excuse to try out Svelte sooo...
