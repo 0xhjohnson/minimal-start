@@ -99,6 +99,7 @@
       class:search-err={search.error}
       bind:value={search.query}
       bind:this={search.el}
+      autofocus
     >
     {#if search.error}
       <p class="text-sm italic text-aurora-r">{search.service} is not a valid search service.</p>
