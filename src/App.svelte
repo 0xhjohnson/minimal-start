@@ -7,7 +7,7 @@
   let icon;
   let ariaLabel; 
 
-  $: if ($mode) {
+  $: if ($mode == 'light') {
     icon = feather.icons.moon.toSvg();
     ariaLabel = 'Switch to dark mode';
     document.body.classList.add('light', 'trans');
@@ -34,7 +34,7 @@
       <button
         aria-label={ariaLabel}
         class="rounded-full p-2"
-        on:click={() => mode.update(m => !m)}>
+        on:click={mode.switch}>
         {@html icon}
       </button>
     </div>
