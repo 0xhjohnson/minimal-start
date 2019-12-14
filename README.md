@@ -31,8 +31,20 @@ Please note:
 - Intended to be used with < 13 frequent links by default.
     - Can be modified by changing the `.cntr` grid class in `/src/Frequent/Frequent.svelte`.
 
-### Building and running in production mode:
-Once you are happy with your configuration, create an optimized version of your startpage and start local server via:
+### Depoly locally via Docker:
+#### Prerequisites
+- [Docker](https://www.docker.com/products/docker-desktop)
+
+Once you have Docker installed create an optimized version of your startpage and start local server via:
+```
+// docker commands most likely require sudo prefix
+docker image build -t minimal-start:1.0 .
+docker container run -dit --restart always -p 80:5000 -d --name min-startpage minimal-start:1.0
+```
+Startpage is now running at `localhost:5000` and will stay running unless manually stopped.
+
+### Deploy locally without Docker:
+If you are not a fan of Docker feel free to run locally via:
 ```
 yarn build
 yarn start
