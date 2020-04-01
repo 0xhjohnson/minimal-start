@@ -39,7 +39,7 @@ Once you have Docker installed create an optimized version of your startpage and
 ```
 // docker commands most likely require sudo prefix
 docker image build -t minimal-start:1.0 .
-docker container run -dit --restart always -p 80:5000 -d --name min-startpage minimal-start:1.0
+docker container run -dit --restart always -p 5000:80 -d --name min-startpage minimal-start:1.0
 ```
 Startpage is now running at `localhost:5000` and will stay running unless manually stopped.
 
